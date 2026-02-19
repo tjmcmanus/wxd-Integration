@@ -1,0 +1,2 @@
+# Python dependencies for watsonx.data migration scripts
+PyYAML>=6.0

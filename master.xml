@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IDVSERVICE_DOCUMENT VERSION="1.0">
+   <SERVICE_CALL>
+      <JOB_TYPE>ARCHIVE</JOB_TYPE>
+      <SOURCE>XML </SOURCE>
+   </SERVICE_CALL>
+   <GLOBAL_PARAM>
+      <KEEP_DATA>1</KEEP_DATA>
+      <COLUMN_SEPARATOR>@#@</COLUMN_SEPARATOR>
+      <ROW_SEPARATOR>\n</ROW_SEPARATOR>
+      <CRYPTO_KEY>12DF</CRYPTO_KEY>
+   </GLOBAL_PARAM>
+   <TABLES >
+      <TABLE NAME="TAB1" DATABASE="DB1" SCHEMA="SCHEMA1">
+      <KEEP_DATA>1</KEEP_DATA>
+      <COLUMN_SEPARATOR>@#</COLUMN_SEPARATOR>
+      <ROW_SEPARATOR>\n</ROW_SEPARATOR>
+      <NULL_INDICATOR>null</NULL_INDICATOR>
+      <FILE_PATH>C:\IDV\DATA\source*.csv</FILE_PATH>
+        <SCT_PATH>C:\IDV\SCT</SCT_PATH>
+           <COLUMNS>
+              <COLUMN NAME="COL11">
+                 <TYPE>DECIMAL</TYPE>
+                 <PRECISION>11</PRECISION>
+                 <SCALE>4</SCALE>
+                 <NULLABLE>1</NULLABLE>
+              </COLUMN>
+              <COLUMN NAME="COL12">
+                 <TYPE>VARCHAR</TYPE>
+                 <PRECISION>310</PRECISION>
+                 <SCALE>-1</SCALE>
+                 <NULLABLE>1</NULLABLE>
+              </COLUMN>
+              <COLUMN NAME="COL13">
+                 <TYPE>INT</TYPE>
+                 <PRECISION>15</PRECISION>
+                 <SCALE>5</SCALE>
+                 <NULLABLE>1</NULLABLE>
+              </COLUMN>
+              <COLUMN NAME="COL14">
+                 <TYPE>FLOAT</TYPE>
+                 <PRECISION>26</PRECISION>
+                 <SCALE>0</SCALE>
+                 <NULLABLE>1</NULLABLE>
+              </COLUMN>
+              <COLUMN NAME="COL15">
+                 <TYPE>TIMESTAMP</TYPE>
+                 <PRECISION>0</PRECISION>
+                 <SCALE>0</SCALE>
+                 <NULLABLE>1</NULLABLE>
+              </COLUMN>
+              <COLUMN NAME="COL16">
+                 <TYPE>DOUBLE</TYPE>
+                 <PRECISION>0</PRECISION>
+                 <SCALE>0</SCALE>
+                 <NULLABLE>1</NULLABLE>
+              </COLUMN>
+              <COLUMN NAME="COL17">
+                 <TYPE>DATE</TYPE>
+                 <PRECISION>0</PRECISION>
+                 <SCALE>0</SCALE>
+                 <NULLABLE>1</NULLABLE>
+              </COLUMN>
+         </COLUMNS>
+      </TABLE>
+      <TABLE NAME="TAB2" DATABASE="DB1" SCHEMA="SCHEMA1">
+      <KEEP_DATA>1</KEEP_DATA>
+      <COLUMN_SEPARATOR>|</COLUMN_SEPARATOR>
+      <ROW_SEPARATOR>|\n</ROW_SEPARATOR>
+      <NULL_INDICATOR>NULL</NULL_INDICATOR>
+      <FILE_PATH>C:\DATA\XML\data*.txt</FILE_PATH>
+        <SCT_PATH>C:\DATA\SCT</SCT_PATH>
+           <COLUMNS>
+              <COLUMN NAME="COL21">
+                 <TYPE>WVARCHAR</TYPE>
+                 <PRECISION>100</PRECISION>
+                 <SCALE>0</SCALE>
+                 <NULLABLE>1</NULLABLE>
+              </COLUMN>
+              <COLUMN NAME="COL22">
+                 <TYPE>VARCHAR</TYPE>
+                 <PRECISION>310</PRECISION>
+                 <SCALE>-1</SCALE>
+                 <NULLABLE>1</NULLABLE>
+              </COLUMN>
+              <COLUMN NAME="COL23">
+                 <TYPE>INT</TYPE>
+                 <PRECISION>15</PRECISION>
+                 <SCALE>5</SCALE>
+                 <NULLABLE>1</NULLABLE>
+              </COLUMN>
+           </COLUMNS>
+       </TABLE>
+      <TABLE NAME="TAB1" DATABASE="DB2" SCHEMA="SCHEMA2">
+      <KEEP_DATA>1</KEEP_DATA>
+      <COLUMN_SEPARATOR>|</COLUMN_SEPARATOR>
+      <ROW_SEPARATOR>|\n</ROW_SEPARATOR>
+      <NULL_INDICATOR>NULL</NULL_INDICATOR>
+      <FILE_PATH>C:\BACK\file*.bcp</FILE_PATH>
+        <SCT_PATH>C:\BACK\SCT</SCT_PATH>
+           <COLUMNS>
+              <COLUMN NAME="COL31">
+                 <TYPE>INT</TYPE>
+                 <PRECISION>0</PRECISION>
+                 <SCALE>0</SCALE>
+                 <NULLABLE>1</NULLABLE>
+              </COLUMN>
+              <COLUMN NAME="COL32">
+                 <TYPE>WCHAR</TYPE>
+                 <PRECISION>300</PRECISION>
+                 <SCALE>0</SCALE>
+                 <NULLABLE>1</NULLABLE>
+              </COLUMN>
+              <COLUMN NAME="COL33">
+                 <TYPE>SMALLINT</TYPE>
+                 <PRECISION>0</PRECISION>
+                 <SCALE>0</SCALE>
+                 <NULLABLE>1</NULLABLE>
+              </COLUMN>
+           </COLUMNS>
+       </TABLE>
+   </TABLES>
+</IDVSERVICE_DOCUMENT>

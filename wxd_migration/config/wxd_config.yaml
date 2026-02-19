@@ -1,0 +1,40 @@
+# Watsonx.data Integration Configuration
+# Migrated from master.xml ARCHIVE job
+
+project:
+  name: "archive_data_migration"
+  description: "Migration of ARCHIVE job from InfoSphere Data Privacy to watsonx.data"
+  version: "1.0.0"
+
+# Global parameters from master.xml
+global_params:
+  keep_data: true
+  column_separator: "@#@"
+  row_separator: "\\n"
+  crypto_key: "12DF"  # Note: Should be moved to secure vault in production
+
+# Watsonx.data connection settings
+watsonx_data:
+  host: "${WXD_HOST}"
+  port: "${WXD_PORT}"
+  catalog: "iceberg_data"
+  schema: "archive_data"
+  auth:
+    type: "api_key"
+    api_key: "${WXD_API_KEY}"
+
+# Data asset storage configuration
+storage:
+  type: "s3"
+  bucket: "${S3_BUCKET}"
+  path_prefix: "archive_data"
+  format: "parquet"  # Using Parquet for better performance in watsonx.data
+  compression: "snappy"
+
+# Encryption settings
+encryption:
+  enabled: true
+  algorithm: "AES-256"
+  key_source: "vault"  # Use secure key management
+
+# Made with Bob

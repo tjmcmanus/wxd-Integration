@@ -1,0 +1,197 @@
+{
+  "data_assets": [
+    {
+      "asset_id": "db1_schema1_tab1",
+      "name": "TAB1",
+      "database": "DB1",
+      "schema": "SCHEMA1",
+      "description": "Archive table TAB1 from DB1.SCHEMA1",
+      "source": {
+        "type": "file",
+        "file_path": "C:\\IDV\\DATA\\source*.csv",
+        "sct_path": "C:\\IDV\\SCT",
+        "format": "csv",
+        "column_separator": "@#",
+        "row_separator": "\\n",
+        "null_indicator": "null"
+      },
+      "target": {
+        "catalog": "iceberg_data",
+        "schema": "archive_data",
+        "table": "db1_schema1_tab1",
+        "format": "parquet"
+      },
+      "columns": [
+        {
+          "name": "COL11",
+          "type": "DECIMAL",
+          "precision": 11,
+          "scale": 4,
+          "nullable": true,
+          "wxd_type": "DECIMAL(11,4)"
+        },
+        {
+          "name": "COL12",
+          "type": "VARCHAR",
+          "precision": 310,
+          "scale": -1,
+          "nullable": true,
+          "wxd_type": "VARCHAR(310)"
+        },
+        {
+          "name": "COL13",
+          "type": "INT",
+          "precision": 15,
+          "scale": 5,
+          "nullable": true,
+          "wxd_type": "INTEGER"
+        },
+        {
+          "name": "COL14",
+          "type": "FLOAT",
+          "precision": 26,
+          "scale": 0,
+          "nullable": true,
+          "wxd_type": "REAL"
+        },
+        {
+          "name": "COL15",
+          "type": "TIMESTAMP",
+          "precision": 0,
+          "scale": 0,
+          "nullable": true,
+          "wxd_type": "TIMESTAMP"
+        },
+        {
+          "name": "COL16",
+          "type": "DOUBLE",
+          "precision": 0,
+          "scale": 0,
+          "nullable": true,
+          "wxd_type": "DOUBLE"
+        },
+        {
+          "name": "COL17",
+          "type": "DATE",
+          "precision": 0,
+          "scale": 0,
+          "nullable": true,
+          "wxd_type": "DATE"
+        }
+      ],
+      "metadata": {
+        "keep_data": true,
+        "original_source": "master.xml",
+        "migration_date": "2026-02-19"
+      }
+    },
+    {
+      "asset_id": "db1_schema1_tab2",
+      "name": "TAB2",
+      "database": "DB1",
+      "schema": "SCHEMA1",
+      "description": "Archive table TAB2 from DB1.SCHEMA1",
+      "source": {
+        "type": "file",
+        "file_path": "C:\\DATA\\XML\\data*.txt",
+        "sct_path": "C:\\DATA\\SCT",
+        "format": "delimited",
+        "column_separator": "|",
+        "row_separator": "|\\n",
+        "null_indicator": "NULL"
+      },
+      "target": {
+        "catalog": "iceberg_data",
+        "schema": "archive_data",
+        "table": "db1_schema1_tab2",
+        "format": "parquet"
+      },
+      "columns": [
+        {
+          "name": "COL21",
+          "type": "WVARCHAR",
+          "precision": 100,
+          "scale": 0,
+          "nullable": true,
+          "wxd_type": "VARCHAR(100)",
+          "notes": "Wide character VARCHAR mapped to standard VARCHAR"
+        },
+        {
+          "name": "COL22",
+          "type": "VARCHAR",
+          "precision": 310,
+          "scale": -1,
+          "nullable": true,
+          "wxd_type": "VARCHAR(310)"
+        },
+        {
+          "name": "COL23",
+          "type": "INT",
+          "precision": 15,
+          "scale": 5,
+          "nullable": true,
+          "wxd_type": "INTEGER"
+        }
+      ],
+      "metadata": {
+        "keep_data": true,
+        "original_source": "master.xml",
+        "migration_date": "2026-02-19"
+      }
+    },
+    {
+      "asset_id": "db2_schema2_tab1",
+      "name": "TAB1",
+      "database": "DB2",
+      "schema": "SCHEMA2",
+      "description": "Archive table TAB1 from DB2.SCHEMA2",
+      "source": {
+        "type": "file",
+        "file_path": "C:\\BACK\\file*.bcp",
+        "sct_path": "C:\\BACK\\SCT",
+        "format": "bcp",
+        "column_separator": "|",
+        "row_separator": "|\\n",
+        "null_indicator": "NULL"
+      },
+      "target": {
+        "catalog": "iceberg_data",
+        "schema": "archive_data",
+        "table": "db2_schema2_tab1",
+        "format": "parquet"
+      },
+      "columns": [
+        {
+          "name": "COL31",
+          "type": "INT",
+          "precision": 0,
+          "scale": 0,
+          "nullable": true,
+          "wxd_type": "INTEGER"
+        },
+        {
+          "name": "COL32",
+          "type": "WCHAR",
+          "precision": 300,
+          "scale": 0,
+          "nullable": true,
+          "wxd_type": "CHAR(300)",
+          "notes": "Wide character CHAR mapped to standard CHAR"
+        },
+        {
+          "name": "COL33",
+          "type": "SMALLINT",
+          "precision": 0,
+          "scale": 0,
+          "nullable": true,
+          "wxd_type": "SMALLINT"
+        }
+      ],
+      "metadata": {
+        "keep_data": true,
+        "original_source": "master.xml",
+        "migration_date": "2026-02-19"
+      }
+    }
+  ]
+}
