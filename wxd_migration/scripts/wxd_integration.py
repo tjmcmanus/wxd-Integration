@@ -63,13 +63,19 @@ class WatsonxDataIntegration:
             nullable = '' if col['nullable'] else ' NOT NULL'
             columns_ddl.append(f"  {col['name']} {col['wxd_type']}{nullable}")
         
+        # Extract storage config values outside f-string
+        bucket = self.storage_config.get('bucket', 'bucket')
+        path_prefix = self.storage_config.get('path_prefix', 'data')
+        table_format = asset['target']['format']
+        columns_joined = ',\n'.join(columns_ddl)
+        
         ddl = f"""-- Create table for {asset['name']} from {asset['database']}.{asset['schema']}
 CREATE TABLE IF NOT EXISTS {catalog}.{schema}.{table} (
-{',\n'.join(columns_ddl)}
+{columns_joined}
 )
 WITH (
-  format = '{asset['target']['format']}',
-  location = 's3://{self.storage_config.get('bucket', 'bucket')}/{self.storage_config.get('path_prefix', 'data')}/{table}/'
+  format = '{table_format}',
+  location = 's3://{bucket}/{path_prefix}/{table}/'
 );"""
         
         return ddl
@@ -83,6 +89,11 @@ WITH (
         source = asset['source']
         file_path = source['file_path'].replace('\\', '/')
         
+        # Extract values outside f-string to avoid backslash issues
+        source_format = source['format']
+        col_sep = source['column_separator']
+        row_sep = source['row_separator']
+        
         # Note: This is a template - actual implementation depends on how files are staged
         sql = f"""-- Load data for {asset['name']}
 -- Source: {file_path}
@@ -93,10 +104,10 @@ WITH (
 --   ... columns ...
 -- )
 -- WITH (
---   format = '{source['format']}',
+--   format = '{source_format}',
 --   external_location = 's3://staging-bucket/path/',
---   field_delimiter = '{source['column_separator']}',
---   line_delimiter = '{source['row_separator']}'
+--   field_delimiter = '{col_sep}',
+--   line_delimiter = '{row_sep}'
 -- );
 
 -- INSERT INTO {catalog}.{schema}.{table}

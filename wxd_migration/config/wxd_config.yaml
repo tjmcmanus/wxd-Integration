@@ -17,6 +17,7 @@ global_params:
 watsonx_data:
   host: "${WXD_HOST}"
   port: "${WXD_PORT}"
+  engine_id: "${WXD_ENGINE_ID}"  # Presto/Spark engine ID (e.g., presto-01)
   catalog: "iceberg_data"
   schema: "archive_data"
   auth:

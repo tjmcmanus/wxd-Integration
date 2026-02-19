@@ -224,15 +224,64 @@ For questions or issues:
 - Check IBM support portal
 - Consult with data engineering team
 
+## Repeatable Archive Flow
+
+### Quick Start
+
+The project now includes a complete, repeatable archive flow using the watsonx.data Python SDK:
+
+```bash
+# 1. Set environment variables
+export WXD_HOST="your-watsonx-data-host"
+export WXD_PORT="443"
+export WXD_ENGINE_ID="presto-01"
+export WXD_API_KEY="your-api-key"
+export S3_BUCKET="your-s3-bucket"
+
+# 2. Create source files mapping
+cp source_files.example.json source_files.json
+# Edit source_files.json with your actual file paths
+
+# 3. Run the complete archive flow
+./scripts/run_archive.sh
+```
+
+### What Gets Automated
+
+The archive flow automatically:
+1. ✅ Parses master.xml table definitions
+2. ✅ Converts source files to Parquet format
+3. ✅ Creates Iceberg tables in watsonx.data
+4. ✅ Loads data into the lakehouse
+5. ✅ Validates row counts and generates summary
+
+### Key Scripts
+
+- **[`archive_flow.py`](scripts/archive_flow.py)** - Main orchestrator for the archive workflow
+- **[`run_archive.sh`](scripts/run_archive.sh)** - End-to-end automation script
+- **[`xml_parser.py`](scripts/xml_parser.py)** - Parse master.xml definitions
+- **[`wxd_integration.py`](scripts/wxd_integration.py)** - Generate DDL and artifacts
+
+### Documentation
+
+See **[ARCHIVE_FLOW_GUIDE.md](ARCHIVE_FLOW_GUIDE.md)** for:
+- Detailed architecture and workflow
+- Step-by-step usage instructions
+- Configuration options
+- Troubleshooting guide
+- Performance optimization tips
+- Security best practices
+
 ## References
 
 - [IBM watsonx.data Documentation](https://www.ibm.com/docs/en/watsonx/watsonxdata)
 - [Apache Iceberg Documentation](https://iceberg.apache.org/)
 - [InfoSphere Data Privacy Documentation](https://www.ibm.com/docs/en/iodp)
+- [IBM Watsonx.data Integration SDK](https://cloud.ibm.com/apidocs/watsonx-data)
 
 ---
 
-**Migration Date**: 2026-02-19  
-**Source**: master.xml (ARCHIVE job)  
-**Target**: watsonx.data (Iceberg catalog)  
-**Status**: Configuration Complete - Ready for Deployment
+**Migration Date**: 2026-02-19
+**Source**: master.xml (ARCHIVE job)
+**Target**: watsonx.data (Iceberg catalog)
+**Status**: Production Ready - Repeatable Archive Flow Implemented

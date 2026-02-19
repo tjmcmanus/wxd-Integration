@@ -1,0 +1,56 @@
+{
+  "project": {
+    "name": "archive_data_migration",
+    "description": "Migration of ARCHIVE job from InfoSphere Data Privacy to watsonx.data",
+    "version": "1.0.0"
+  },
+  "watsonx_data": {
+    "host": "${WXD_HOST}",
+    "port": "${WXD_PORT}",
+    "catalog": "iceberg_data",
+    "schema": "archive_data",
+    "auth": {
+      "type": "api_key",
+      "api_key": "${WXD_API_KEY}"
+    }
+  },
+  "storage": {
+    "type": "s3",
+    "bucket": "${S3_BUCKET}",
+    "path_prefix": "archive_data",
+    "format": "parquet",
+    "compression": "snappy"
+  },
+  "assets": [
+    {
+      "asset_id": "db1_schema1_tab1",
+      "name": "TAB1",
+      "database": "DB1",
+      "schema": "SCHEMA1",
+      "target_table": "iceberg_data.archive_data.db1_schema1_tab1",
+      "column_count": 7,
+      "source_file": "C:\\IDV\\DATA\\source*.csv",
+      "format": "parquet"
+    },
+    {
+      "asset_id": "db1_schema1_tab2",
+      "name": "TAB2",
+      "database": "DB1",
+      "schema": "SCHEMA1",
+      "target_table": "iceberg_data.archive_data.db1_schema1_tab2",
+      "column_count": 3,
+      "source_file": "C:\\DATA\\XML\\data*.txt",
+      "format": "parquet"
+    },
+    {
+      "asset_id": "db2_schema2_tab1",
+      "name": "TAB1",
+      "database": "DB2",
+      "schema": "SCHEMA2",
+      "target_table": "iceberg_data.archive_data.db2_schema2_tab1",
+      "column_count": 3,
+      "source_file": "C:\\BACK\\file*.bcp",
+      "format": "parquet"
+    }
+  ]
+}

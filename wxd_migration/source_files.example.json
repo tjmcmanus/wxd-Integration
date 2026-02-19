@@ -1,0 +1,30 @@
+{
+  "_comment": "Example source files mapping for archive flow",
+  "_instructions": "Copy this file to source_files.json and update paths to your actual data files",
+  
+  "db1_schema1_tab1": "/path/to/your/source1.csv",
+  "db1_schema1_tab2": "/path/to/your/data1.txt",
+  "db2_schema2_tab1": "/path/to/your/file1.bcp",
+  
+  "_format_notes": {
+    "asset_id_format": "{database}_{schema}_{table} (all lowercase)",
+    "db1_schema1_tab1": {
+      "original_path": "C:\\IDV\\DATA\\source*.csv",
+      "columns": 7,
+      "separator": "@#",
+      "format": "csv"
+    },
+    "db1_schema1_tab2": {
+      "original_path": "C:\\DATA\\XML\\data*.txt",
+      "columns": 3,
+      "separator": "|",
+      "format": "delimited"
+    },
+    "db2_schema2_tab1": {
+      "original_path": "C:\\BACK\\file*.bcp",
+      "columns": 3,
+      "separator": "|",
+      "format": "bcp"
+    }
+  }
+}

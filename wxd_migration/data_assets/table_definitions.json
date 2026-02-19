@@ -114,7 +114,7 @@
           "scale": 0,
           "nullable": true,
           "wxd_type": "VARCHAR(100)",
-          "notes": "Wide character VARCHAR mapped to standard VARCHAR"
+          "notes": "Wide character WVARCHAR mapped to standard type"
         },
         {
           "name": "COL22",
@@ -176,7 +176,7 @@
           "scale": 0,
           "nullable": true,
           "wxd_type": "CHAR(300)",
-          "notes": "Wide character CHAR mapped to standard CHAR"
+          "notes": "Wide character WCHAR mapped to standard type"
         },
         {
           "name": "COL33",
